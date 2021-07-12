@@ -9,7 +9,7 @@ RUN ./mvnw dependency:go-offline -B
 RUN ./mvnw clean package && cp target/springbootdockertest-0.0.1-SNAPSHOT.jar springbootdockertest-0.0.1-SNAPSHOT.jar 
 RUN java -Djarmode=layertools -jar springbootdockertest-0.0.1-SNAPSHOT.jar extract
 #ENTRYPOINT ["java","-jar", "springbootdockertest-0.0.1-SNAPSHOT.jar"]
-FROM openjdk:16-jre-slim
+FROM openjdk:16.0.1-jdk-slim
 WORKDIR application
 COPY – from=builder application/dependencies/ ./
 COPY – from=builder application/spring-boot-loader/ ./
