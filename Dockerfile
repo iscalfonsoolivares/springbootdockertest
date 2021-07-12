@@ -11,9 +11,9 @@ RUN java -Djarmode=layertools -jar springbootdockertest-0.0.1-SNAPSHOT.jar extra
 #ENTRYPOINT ["java","-jar", "springbootdockertest-0.0.1-SNAPSHOT.jar"]
 FROM openjdk:16.0.1-jdk-slim
 WORKDIR application
-COPY - from=builder application/dependencies/ ./
-COPY - from=builder application/spring-boot-loader/ ./
-COPY - from=builder application/snapshot-dependencies/ ./
-COPY - from=builder application/application/ ./
+COPY --from=builder application/dependencies/ ./
+COPY --from=builder application/spring-boot-loader/ ./
+COPY --from=builder application/snapshot-dependencies/ ./
+COPY --from=builder application/application/ ./
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
 
