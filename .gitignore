@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### React code dependencies ###
+
+src/myreactapp/node_modules
+src/myreactapp/node
+
+### React builded code ###
+
+src/myreactapp/build
