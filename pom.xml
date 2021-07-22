@@ -100,7 +100,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>target/classes/static/doc</outputDirectory>
+							<outputDirectory>target/classes/static</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/myreactapp/build</directory>
