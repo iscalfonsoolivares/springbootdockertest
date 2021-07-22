@@ -18,13 +18,13 @@ import java.nio.charset.Charset;
 
 @ControllerAdvice
 public class NotFoundHandler {
-    private static final Logger log = LoggerFactory.getLogger(MyExceptionHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(NotFoundHandler.class);
 
     @ExceptionHandler(NoHandlerFoundException.class)
     public ResponseEntity<String> renderDefaultPage() {
         log.debug("Here we are bad wolf");
         try {
-            File indexFile = ResourceUtils.getFile("classpath:static/index.html");
+            File indexFile = ResourceUtils.getFile("classpath:static/doc/index.html");
             FileInputStream inputStream = new FileInputStream(indexFile);
             String body = StreamUtils.copyToString(inputStream, Charset.defaultCharset());
             log.debug(body);
