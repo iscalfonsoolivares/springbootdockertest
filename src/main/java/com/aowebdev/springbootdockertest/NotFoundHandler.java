@@ -28,16 +28,9 @@ public class NotFoundHandler {
     public ResponseEntity<String> renderDefaultPage() {
 
         try {
-
-            String body = "";
             ClassPathResource cpr = new ClassPathResource("static/index.html");
-
             byte[] bdata = FileCopyUtils.copyToByteArray(cpr.getInputStream());
-            body = new String(bdata, StandardCharsets.UTF_8);
-
-            // File indexFile = ResourceUtils.getFile("classpath:");
-            // FileInputStream inputStream = new FileInputStream(indexFile);
-            // String body = StreamUtils.copyToString(inputStream, Charset.defaultCharset());
+            String body = new String(bdata, StandardCharsets.UTF_8);
             return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(body);
         } catch (IOException e) {
             log.warn("IOException", e);
