@@ -27,7 +27,7 @@ public class NotFoundHandler {
     @ExceptionHandler(NoHandlerFoundException.class)
     public ResponseEntity<String> renderDefaultPage() {
         try {
-            ClassPathResource cpr = new ClassPathResource("static/index.html");
+            ClassPathResource cpr = new ClassPathResource("static/assets/index.html");
             byte[] bdata = FileCopyUtils.copyToByteArray(cpr.getInputStream());
             String body = new String(bdata, StandardCharsets.UTF_8);
             return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(body);
